@@ -1,38 +1,53 @@
 import React from 'react';
 import './index.css';
 import placeholderPfp from './images/hypergirl.png';
+import Navbar from './components/navbar';
+import { ChakraProvider, Box, Flex, VStack, Heading, Text, Button, Image } from '@chakra-ui/react'
 
 function App() {
   const handleDownload = () => {
-    // Replace 'your-resume.pdf' with the actual name of your PDF file
     const pdfUrl = process.env.PUBLIC_URL + '/Brian_Resume.pdf';
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'Varvara_Mironov_Resume.pdf'; // You can change the download file name here
+    link.download = 'Varvara_Mironov_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
+
   return (
-    <div className="App min-h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
-        <div className="w-full md:w-1/2 text-white mb-8 md:mb-0 pr-4">
-          <h1 className="text-4xl font-bold mb-4">I'm Varvara Mironov</h1>
-          <p className="text-xl mb-6">A front end developer crafting mobile and web experiences </p>
-          <button 
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full"
-            onClick={handleDownload}>
+    <ChakraProvider>
+      <Box minH="100vh" bg="gray.900" p={4}>
+        <Navbar />
+        <Flex maxW="6xl" w="full" flexDir={["column", "column", "row"]} alignItems="center" justifyContent="space-between" mx="auto">
+          <VStack alignItems="flex-start" w={["full", "full", "50%"]} mb={[8, 8, 0]} pr={[0, 0, 8]} spacing={6}>
+            <Heading as="h1" size="2xl" color="white">I'm Varvara Mironov</Heading>
+            <Text fontSize="xl" color="white">A front end developer crafting mobile and web experiences</Text>
+            <Button 
+              colorScheme="blue" 
+              size="lg" 
+              borderRadius="full"
+              onClick={handleDownload}
+            >
               My Resume
-          </button>
-        </div>
-        <div className="w-[300px] h-[300px]  rounded-lg flex items-center justify-center">
-          <img
-            src={placeholderPfp}
-            className='rounded-[20px]'
-          ></img>
-        </div>
-      </div>
-    </div>
+            </Button>
+          </VStack>
+          <Flex w={["full", "full", "50%"]} justifyContent={["center", "center", "flex-end"]}>
+            <Box w="5/6" h="5/6">
+              <Image
+                src={placeholderPfp}
+                borderRadius="20px"
+                objectFit="cover"
+                w="full"
+                h="full"
+                alt="Varvara Mironov"
+              />
+            </Box>
+          </Flex>
+        </Flex>
+      </Box>
+    </ChakraProvider>
   );
 }
+
 export default App;
