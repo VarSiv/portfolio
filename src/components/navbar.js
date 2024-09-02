@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Flex,
@@ -8,16 +8,11 @@ import {
 } from "@chakra-ui/react";
 import translations from '../translations.json';
 
-export const Navbar = () => {
-  const [language, setLanguage] = useState('EN');
+export const Navbar = ({ language, toggleLanguage }) => {
   const bgColor = useColorModeValue("blue.500", "blue.200");
   const textColor = useColorModeValue("white", "gray.800");
 
-  const toggleLanguage = () => {
-    setLanguage(prevLang => prevLang === 'EN' ? 'ESP' : 'EN');
-  };
-
-  const getNavText = (key) => {
+  const getTranslation = (key) => {
     return translations[language]?.[key] || key;
   };
 
@@ -39,13 +34,13 @@ export const Navbar = () => {
     >
       <Flex justifyContent="space-between" alignItems="center" px={8}>
         <Text fontSize="xl" ml={2}>
-          {getNavText('about')}
+          {getTranslation('about')}
         </Text>
         <Text fontSize="xl" ml={2}>
-          {getNavText('projects')}
+          {getTranslation('projects')}
         </Text>
         <Text fontSize="xl" ml={2}>
-          {getNavText('contactMe')}
+          {getTranslation('contactMe')}
         </Text>
         <Button onClick={toggleLanguage} ml={4} size="sm">
           {language === 'EN' ? 'ESP' : 'EN'}

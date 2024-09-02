@@ -1,12 +1,25 @@
 {
-    "EN": {
-      "about": "About",
-      "projects": "Projects",
-      "contactMe": "Contact Me"
-    },
-    "ESP": {
-      "about": "Acerca de",
-      "projects": "Proyectos",
-      "contactMe": "Contactame"
-    }
+  "EN": {
+    "about": "About",
+    "projects": "Projects",
+    "contactMe": "Contact Me",
+    "heroHeading": "I'm Varvara Mironov",
+    "heroSubheading": "A front end developer crafting mobile and web experiences",
+    "resumeButton": "My Resume",
+    "heroImageAlt": "Varvara Mironov",
+    "languages": "Languages",
+    "frameworks": "Frameworks"
+  },
+  "ESP": {
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "contactMe": "Contáctame",
+    "heroHeading": "Soy Varvara Mironov",
+    "heroSubheading": "Una desarrolladora front-end creando experiencias móviles y web",
+    "resumeButton": "Mi Currículum",
+    "heroImageAlt": "Varvara Mironov",
+    "languages": "Lenguajes",
+    "frameworks": "Frameworks"
+
   }
+}
