@@ -21,8 +21,8 @@ export const Hero = ({ language }) => {
     return (    
         <Flex maxW="6xl" w="full" flexDir={["column", "column", "row"]} alignItems="center" justifyContent="space-between" mx="auto" paddingTop={20}>
             <VStack alignItems="flex-start" w={["full", "full", "50%"]} mb={[8, 8, 0]} pr={[0, 0, 8]} spacing={6}>
-                <Heading as="h1" size="2xl" color="white">{getTranslation('heroHeading')}</Heading>
-                <Text fontSize="xl" color="white">{getTranslation('heroSubheading')}</Text>
+                <Heading as="h1" size="2xl" color="white" className="font-rubik">{getTranslation('heroHeading')}</Heading>
+                <Text fontSize="xl" color="white" className="font-rubik">{getTranslation('heroSubheading')}</Text>
                 <Button 
                     colorScheme="blue" 
                     size="lg" 
