@@ -7,8 +7,7 @@
     "heroSubheading": "I'm a front-end web and mobile developer based in Argentina ",
     "resumeButton": "My Resume",
     "heroImageAlt": "Varvara Mironov",
-    "languages": "Languages",
-    "frameworks": "Frameworks"
+    "skills": "Skills"
   },
   "ESP": {
     "resume": "curriculum",
@@ -18,8 +17,7 @@
     "heroSubheading": "Una desarrolladora front-end creando experiencias móviles y web",
     "resumeButton": "Mi Currículum",
     "heroImageAlt": "Varvara Mironov",
-    "languages": "Lenguajes",
-    "frameworks": "Frameworks"
+    "skills": "Skills"
 
   }
 }
