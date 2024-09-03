@@ -2,17 +2,9 @@ import React from "react";
 import { Flex, VStack, Heading, Text, Button, Image, Box } from '@chakra-ui/react'
 import translations from '../translations.json';
 import placeholderPfp from '../images/hypergirl.png';
+import { TEXT_BLUE } from "../App";
 
 export const Hero = ({ language }) => {
-    const handleDownload = () => {
-        const pdfUrl = process.env.PUBLIC_URL + '/Brian_Resume.pdf';
-        const link = document.createElement('a');
-        link.href = pdfUrl;
-        link.download = 'Varvara_Mironov_Resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
 
     const getTranslation = (key) => {
         return translations[language]?.[key] || key;
@@ -20,17 +12,16 @@ export const Hero = ({ language }) => {
       
     return (    
         <Flex maxW="6xl" w="full" flexDir={["column", "column", "row"]} alignItems="center" justifyContent="space-between" mx="auto" paddingTop={20}>
-            <VStack alignItems="flex-start" w={["full", "full", "50%"]} mb={[8, 8, 0]} pr={[0, 0, 8]} spacing={6}>
-                <Heading as="h1" size="2xl" color="white" className="font-rubik">{getTranslation('heroHeading')}</Heading>
+            <VStack alignItems="flex-start" w={["full", "full", "50%"]} mb={[8, 8, 0]} pr={[0, 0, 8]} spacing={2}>
+
+                <Text fontSize="xl" color={TEXT_BLUE} className="font-mono">{getTranslation('myname')}</Text>
+
+                <Text fontSize={"6xl"} fontWeight={'semibold'} color="white" className="font-rubik" paddingBottom={2}>
+                    Varvara Mironov
+                </Text>
+
                 <Text fontSize="xl" color="white" className="font-rubik">{getTranslation('heroSubheading')}</Text>
-                <Button 
-                    colorScheme="blue" 
-                    size="lg" 
-                    borderRadius="full"
-                    onClick={handleDownload}
-                >
-                    {getTranslation('resumeButton')}
-                </Button>
+
             </VStack>
             <Flex w={["full", "full", "50%"]} justifyContent={["center", "center", "flex-end"]}>
                 <Box w="5/6" h="5/6">

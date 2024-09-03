@@ -7,6 +7,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import translations from '../translations.json';
+import { ACCENT_BLUE, LINE_BLUE, TEXT_BLUE } from "../App";
 
 export const Navbar = ({ language, toggleLanguage }) => {
   const bgColor = useColorModeValue("blue.500", "blue.200");
@@ -15,15 +16,25 @@ export const Navbar = ({ language, toggleLanguage }) => {
   const getTranslation = (key) => {
     return translations[language]?.[key] || key;
   };
-
+  const handleDownload = () => {
+    const pdfUrl = process.env.PUBLIC_URL + '/Brian_Resume.pdf';
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'Varvara_Mironov_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
   return (
     <Box
-      bg={bgColor}
-      color={textColor}
-      py={2}
+      bg={`${LINE_BLUE}1A`}
+      color={"white"}
+      py={3}
       px={4}
       borderRadius="full"
       boxShadow="md"
+      border="1px" 
+      borderColor={LINE_BLUE}
       width="50%"
       w={{ base: "100%", md: "100%", lg: "50%" }}
       maxWidth="container.xl"
@@ -33,17 +44,61 @@ export const Navbar = ({ language, toggleLanguage }) => {
       zIndex={1}
     >
       <Flex justifyContent="space-between" alignItems="center" px={8}>
-        <Text fontSize="xl" ml={2}>
-          {getTranslation('about')}
-        </Text>
-        <Text fontSize="xl" ml={2}>
+      <Button
+          onClick={handleDownload}
+          ml={4}
+          size="xl"
+          fontSize={"lg"}
+          color={TEXT_BLUE}
+          bg="transparent"
+          fontFamily="mono"
+          fontWeight="normal"
+          borderColor={TEXT_BLUE}
+          _hover=''
+        >
+          {getTranslation('resume')}
+        </Button>
+        <Button
+          //onClick={toggleLanguage}
+          ml={4}
+          size="xl"
+          fontSize={"lg"}
+          color={TEXT_BLUE}
+          bg="transparent"
+          fontFamily="mono"
+          fontWeight="normal"
+          borderColor={TEXT_BLUE}
+          _hover=''
+        >
           {getTranslation('projects')}
-        </Text>
-        <Text fontSize="xl" ml={2}>
+        </Button>
+        <Button
+          //onClick={toggleLanguage}
+          ml={4}
+          size="xl"
+          fontSize={"lg"}
+          color={TEXT_BLUE}
+          bg="transparent"
+          fontFamily="mono"
+          fontWeight="normal"
+          borderColor={TEXT_BLUE}
+          _hover=''
+        >
           {getTranslation('contactMe')}
-        </Text>
-        <Button onClick={toggleLanguage} ml={4} size="sm">
-          {language === 'EN' ? 'ESP' : 'EN'}
+        </Button>
+        <Button
+          onClick={toggleLanguage}
+          ml={4}
+          size="xl"
+          fontSize={"lg"}
+          color={TEXT_BLUE}
+          bg="transparent"
+          fontFamily="mono"
+          fontWeight="normal"
+          borderColor={TEXT_BLUE}
+          _hover=''
+        >
+          en esp
         </Button>
       </Flex>
     </Box>
