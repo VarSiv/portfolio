@@ -41,7 +41,7 @@ export const Navbar = ({ language, toggleLanguage }) => {
   const navItems = [
     { key: 'resume', onClick: handleDownload },
     { key: 'projects', onClick: () => {} },
-    { key: 'contactMe', onClick: () => {} },
+    { key: 'contact', onClick: () => {} },
   ];
 
   return (

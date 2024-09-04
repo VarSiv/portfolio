@@ -2,7 +2,7 @@
   "en": {
     "resume": "resume",
     "projects": "projects",
-    "contactMe": "contact",
+    "contact": "contact",
     "myname": "Hello, my name is",
     "heroSubheading": "I'm a front-end web and mobile developer based in Argentina ",
     "resumeButton": "My Resume",
@@ -11,12 +11,15 @@
     "siam-news": "SIAM Newspaper",
     "siam-desc": "A website for my college's newspaper built with the ghost CMS, custom HTML/CSS and JavaScript. With a clean design and user-friendly UI, it has a growing subscriber base of over 100 members. Collaborating with editors and designers, we built a platform with diverse opinions and informative content on current events.",
     "site": "site",
-    "code": "code"
+    "code": "code",
+    "contact-me": "Contact Me",
+    "contact-text": "Get in touch through the form or send an email to vmironov@mail.utdt.edu"
+
   },
   "esp": {
     "resume": "curriculum",
     "projects": "proyectos",
-    "contactMe": "contactame",
+    "contact": "contactame",
     "myname": "Soy Varvara Mironov",
     "heroSubheading": "Una desarrolladora front-end creando experiencias móviles y web",
     "resumeButton": "Mi Currículum",
@@ -25,6 +28,8 @@
     "siam-news": "Revista SIAM",
     "siam-desc": "A website for my college's newspaper built with the ghost CMS, custom HTML/CSS and JavaScript. With a clean design and user-friendly UI, it has a growing subscriber base of over 100 members. Collaborating with editors and designers, we built a platform with diverse opinions and informative content on current events.",
     "site": "sitio",
-    "code": "código"
+    "code": "código",
+    "contact-me": "Contactame",
+    "contact-text": "Get in touch through the form or send an email to vmironov@mail.utdt.edu"
   }
 }
