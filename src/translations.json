@@ -1,5 +1,5 @@
 {
-  "EN": {
+  "en": {
     "resume": "resume",
     "projects": "projects",
     "contactMe": "contact",
@@ -7,9 +7,13 @@
     "heroSubheading": "I'm a front-end web and mobile developer based in Argentina ",
     "resumeButton": "My Resume",
     "heroImageAlt": "Varvara Mironov",
-    "skills": "Skills"
+    "skills": "Skills",
+    "siam-news": "SIAM Newspaper",
+    "siam-desc": "A website for my college's newspaper built with the ghost CMS, custom HTML/CSS and JavaScript. With a clean design and user-friendly UI, it has a growing subscriber base of over 100 members. Collaborating with editors and designers, we built a platform with diverse opinions and informative content on current events.",
+    "site": "site",
+    "code": "code"
   },
-  "ESP": {
+  "esp": {
     "resume": "curriculum",
     "projects": "proyectos",
     "contactMe": "contactame",
@@ -17,7 +21,10 @@
     "heroSubheading": "Una desarrolladora front-end creando experiencias móviles y web",
     "resumeButton": "Mi Currículum",
     "heroImageAlt": "Varvara Mironov",
-    "skills": "Skills"
-
+    "skills": "Skills",
+    "siam-news": "Revista SIAM",
+    "siam-desc": "A website for my college's newspaper built with the ghost CMS, custom HTML/CSS and JavaScript. With a clean design and user-friendly UI, it has a growing subscriber base of over 100 members. Collaborating with editors and designers, we built a platform with diverse opinions and informative content on current events.",
+    "site": "sitio",
+    "code": "código"
   }
 }

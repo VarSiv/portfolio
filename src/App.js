@@ -8,16 +8,15 @@ import { ChakraProvider, Box } from '@chakra-ui/react'
 export const TEXT_BLUE = '#92E4FF';
 export const LINE_BLUE = '#9EDCFB';
 function App() {
-  const [language, setLanguage] = useState('EN');
+  const [language, setLanguage] = useState('en');
 
   const toggleLanguage = () => {
-    setLanguage(prevLang => prevLang === 'EN' ? 'ESP' : 'EN');
+    setLanguage(prevLang => prevLang === 'en' ? 'esp' : 'en');
   };
-
   return (
     <ChakraProvider>
       <Box minH="100vh" bg="#1F2338" p={4}>
-        <Navbar language={language} toggleLanguage={toggleLanguage} />
+        <Navbar language={language} toggleLanguage={toggleLanguage} sticky="top"/>
         <Hero language={language} />
         <Skills language={language}/>
         <Projects language={language}/>

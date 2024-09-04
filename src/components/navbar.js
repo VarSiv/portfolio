@@ -6,12 +6,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import translations from '../translations.json';
-import { ACCENT_BLUE, LINE_BLUE, TEXT_BLUE } from "../App";
+import { LINE_BLUE, TEXT_BLUE } from "../App";
 
-const NavButton = ({ onClick, translationKey, language }) => (
+export const TextButton = ({ onClick, translationKey, language, isActive }) => (
   <Button
     onClick={onClick}
-    ml={4}
+    ml={0}
     size="xl"
     fontSize="lg"
     color={TEXT_BLUE}
@@ -20,6 +20,8 @@ const NavButton = ({ onClick, translationKey, language }) => (
     fontWeight="normal"
     borderColor={TEXT_BLUE}
     _hover=""
+    textDecoration={isActive ? "underline" : "none"}
+    textUnderlineOffset="4px"
   >
     {translations[language]?.[translationKey] || translationKey}
   </Button>
@@ -40,7 +42,6 @@ export const Navbar = ({ language, toggleLanguage }) => {
     { key: 'resume', onClick: handleDownload },
     { key: 'projects', onClick: () => {} },
     { key: 'contactMe', onClick: () => {} },
-    { key: 'en esp', onClick: toggleLanguage },
   ];
 
   return (
@@ -60,16 +61,31 @@ export const Navbar = ({ language, toggleLanguage }) => {
       my={4}
       position="relative"
       zIndex={1}
+      className="mynav"
     >
       <Flex justifyContent="space-between" alignItems="center" px={8}>
         {navItems.map((item) => (
-          <NavButton
+          <TextButton
             key={item.key}
             onClick={item.onClick}
             translationKey={item.key}
             language={language}
           />
         ))}
+        <Flex >
+          <TextButton
+            onClick={toggleLanguage}
+            translationKey="en"
+            language={language}
+            isActive={language === 'en'}
+          />
+          <TextButton
+            onClick={toggleLanguage}
+            translationKey="esp"
+            language={language}
+            isActive={language === 'esp'}
+          />
+        </Flex>
       </Flex>
     </Box>
   );
