@@ -14,7 +14,7 @@ export const Projects = ({ language }) => {
     const getTranslation = (key) => {
         return translations[language]?.[key] || key;
     };
-      
+
     return (    
         <Flex maxW="6xl" w="full" flexDir={["column", "column", "row"]} alignItems="center" justifyContent="space-between" mx="auto" marginTop={100}>
             <VStack alignItems="center" w={["full", "full", "100%"]} mb={[8, 0, 0]} pr={[0, 0, 8]} spacing={0}>
@@ -43,9 +43,14 @@ export const Projects = ({ language }) => {
                     </VStack>
                     <Box width='50%' height='50%' pl={10}>
                         <Image src={siam} alt='Siam Revista example' maxWidth="100%" maxHeight="100%" objectFit="contain" borderRadius={30}/>
+                        
                     </Box>
-                </Flex>
+                    
 
+                </Flex>
+                <Box width='100%'>
+                        <div style={{ borderTop: "1px solid #4a4d5c ", marginTop: 20, marginBottom: 20 }}></div>
+                    </Box>
             </VStack>
         </Flex>
     )

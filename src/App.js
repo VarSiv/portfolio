@@ -22,6 +22,7 @@ function App() {
         <Hero language={language} />
         <Skills language={language}/>
         <Projects language={language}/>
+        
         <Contact language={language}/>
       </Box>
     </ChakraProvider>

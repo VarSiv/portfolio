@@ -11,6 +11,8 @@ import siam from '../images/siam.png';
 import { LINE_BLUE, TEXT_BLUE } from "../App";
 import { TextButton } from "./navbar";
 import emailjs from '@emailjs/browser';
+
+
 export const Contact = ({ language }) => {
     const [formData, setFormData] = useState({ email: '', body: '' });
     useEffect(() => {
@@ -48,31 +50,60 @@ export const Contact = ({ language }) => {
     };
       
     return (    
-        <Flex maxW="6xl" w="full" flexDir={'row'} alignItems="center" justifyContent="space-between" mx="auto" marginTop={100}>
+        <Flex maxW="6xl" w="full" flexDir={'row'} alignItems="center" justifyContent="space-between" mx="auto" marginTop={100} marginBottom={100}>
             
-            <VStack width='50%' height='50%' p={10} alignItems="left" alignSelf="center">
+            <VStack width='50%' height='50%' pr={10} alignItems="left" alignSelf="center">
                 <form onSubmit={handleSubmit}>
-                <FormControl>
-                <Input 
-                    
-                    type='email' 
-                    name='email' 
-                    value={formData.email} 
-                    onChange={handleInputChange}
-                    color="white"
-                />
-                <Input 
-                    type='text' 
-                    name='body' 
-                    value={formData.body} 
-                    onChange={handleInputChange}
-                    color="white"
-                />
-            </FormControl>
-            <Button type="submit">Send</Button>
+                <FormControl >
+                    <Input 
+                        borderRadius='full'
+                        type='email' 
+                        name='email' 
+                        value={formData.email} 
+                        onChange={handleInputChange}
+                        color="white"
+                        mb={4}
+                        bg={`${LINE_BLUE}1A`}
+                        boxShadow="md"
+                        border="1px" 
+                        borderColor={LINE_BLUE}
+                        className='font-rubik'
+                        
+                    />
+                    <Input 
+                        borderRadius='30px'
+                        minHeight="200px"
+                        type='text' 
+                        name='body' 
+                        value={formData.body} 
+                        onChange={handleInputChange}
+                        color="white"
+                        mb={4}
+                        bg={`${LINE_BLUE}1A`}
+                        boxShadow="md"
+                        border="1px" 
+                        borderColor={LINE_BLUE}
+                        className='font-rubik'
+                    />
+                </FormControl>
+
+                <Button 
+                    type="submit" 
+                    bg='transparent' 
+                    color={TEXT_BLUE} 
+                    className='font-mono' 
+                    fontWeight='regular' 
+                    _hover='none' 
+                    fontSize='lg'
+                    boxShadow="md"
+                    border="1px" 
+                    borderColor={LINE_BLUE}
+                >
+                    send
+                </Button>
                 </form>
             </VStack>
-            <VStack width='50%' height='50%' p={10} alignItems="left" alignSelf="center">
+            <VStack width='50%' height='50%' p={10} alignItems="left" alignSelf="center" paddingBottom={20}>
                 <Text fontSize={"6xl"} fontWeight={'semibold'} color="white" className="font-rubik" paddingBottom={2} marginBottom={0}>
                    { getTranslation('contact-me')}
                 </Text>
