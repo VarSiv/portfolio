@@ -24,7 +24,7 @@ export const Projects = ({ language }) => {
                     {capitalizeFirstLetter(getTranslation('projects'))}
                 </Text>
 
-                <Flex>
+                <Flex mb={20}>
                     
                     <Box width='50%' height='50%' pr={10}>
                         <Image src={meddy} alt='Siam Revista example' maxWidth="100%" maxHeight="100%" objectFit="contain" borderRadius={30}/>
@@ -37,19 +37,19 @@ export const Projects = ({ language }) => {
                         <Flex flexDir={'row'} gap={6}>
                             <TextButton 
                                 key="site"
-                                onClick={() => {}}
+                                onClick={() => window.open('https://trymeddy.com/', '_blank', 'noopener,noreferrer')}
                                 translationKey="site"
                                 language={language}
                             />
                             <TextButton 
                                 key="code"
-                                onClick={() => {}}
+                                onClick={() => window.open('https://github.com/KhromeM/meddy', '_blank', 'noopener,noreferrer')}
                                 translationKey="code"
                                 language={language}
                             />
                             <TextButton 
                                 key="code"
-                                onClick={() => {}}
+                                onClick={() => window.open('https://www.youtube.com/watch?v=v3aB5pym91A', '_blank', 'noopener,noreferrer')}
                                 translationKey="demo-video"
                                 language={language}
                             />
@@ -61,20 +61,20 @@ export const Projects = ({ language }) => {
                         <div style={{ borderTop: "1px solid #4a4d5c ", marginTop: 20, marginBottom: 20 }}></div>
                     </Box>
 
-                <Flex>
+                <Flex my={20}>
                     <VStack width='50%' height='50%' pr={10} alignItems="left" alignSelf="center"> 
                         <Text fontSize="5xl" color={TEXT_BLUE} className="font-mono">{getTranslation('siam-news')}</Text>
                         <Text fontSize='20px' color="white" className="font-rubik">{getTranslation('siam-desc')}</Text>
                         <Flex flexDir={'row'} gap={6}>
                             <TextButton 
                                 key="site"
-                                onClick={() => {}}
+                                onClick={() => window.open('https://www.siamrevista.com/', '_blank', 'noopener,noreferrer')}
                                 translationKey="site"
                                 language={language}
                             />
                             <TextButton 
                                 key="code"
-                                onClick={() => {}}
+                                onClick={() => window.open('https://github.com/VarSiv/siam-theme', '_blank', 'noopener,noreferrer')}
                                 translationKey="code"
                                 language={language}
                             />

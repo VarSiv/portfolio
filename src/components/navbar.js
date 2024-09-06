@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Box,
   Flex,
@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import translations from '../translations.json';
 import { LINE_BLUE, TEXT_BLUE } from "../App";
+
 
 export const TextButton = ({ onClick, translationKey, language, isActive }) => (
   <Button
@@ -47,11 +48,17 @@ export const Navbar = ({ language, toggleLanguage }) => {
     link.click();
     document.body.removeChild(link);
   };
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const navItems = [
     { key: 'resume', onClick: handleDownload },
-    { key: 'projects', onClick: () => {} },
-    { key: 'contact', onClick: () => {} },
+    { key: 'projects', onClick: () => {}},
+    { key: 'contact', onClick: () => {}},
   ];
 
   return (

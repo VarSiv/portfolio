@@ -20,10 +20,9 @@ function App() {
       <Box minH="100vh" bg="#1F2338" p={4}>
         <Navbar language={language} toggleLanguage={toggleLanguage} sticky="top"/>
         <Hero language={language} />
-        <Skills language={language}/>
-        <Projects language={language}/>
-        
-        <Contact language={language}/>
+        <Skills language={language} />
+        <Projects language={language} />
+        <Contact  language={language} />
       </Box>
     </ChakraProvider>
   );
