@@ -13,8 +13,9 @@
     "site": "site",
     "code": "code",
     "contact-me": "Contact Me",
-    "contact-text": "Get in touch through the form or send an email to vmironov@mail.utdt.edu"
-
+    "contact-text": "Get in touch through the form or send an email to vmironov@mail.utdt.edu",
+    "meddy-desc": "A website for my college's newspaper built with the ghost CMS, custom HTML/CSS and JavaScript. With a clean design and user-friendly UI, it has a growing subscriber base of over 100 members. Collaborating with editors and designers, we built a platform with diverse opinions and informative content on current events.",
+    "demo-video": "demo video"
   },
   "esp": {
     "resume": "curriculum",
@@ -30,6 +31,9 @@
     "site": "sitio",
     "code": "código",
     "contact-me": "Contactame",
-    "contact-text": "Get in touch through the form or send an email to vmironov@mail.utdt.edu"
+    "contact-text": "Get in touch through the form or send an email to vmironov@mail.utdt.edu",
+    "meddy-desc": "A website for my college's newspaper built with the ghost CMS, custom HTML/CSS and JavaScript. With a clean design and user-friendly UI, it has a growing subscriber base of over 100 members. Collaborating with editors and designers, we built a platform with diverse opinions and informative content on current events.",
+    "demo-video": "demo video"
+
   }
 }

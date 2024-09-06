@@ -2,6 +2,8 @@ import React from "react";
 import { Flex, VStack, Heading, Text, Button, Image, Box } from '@chakra-ui/react'
 import translations from '../translations.json';
 import siam from '../images/siam.png';
+import meddy from '../images/meddy.png';
+
 import { LINE_BLUE, TEXT_BLUE } from "../App";
 import { TextButton } from "./navbar";
 
@@ -23,10 +25,47 @@ export const Projects = ({ language }) => {
                 </Text>
 
                 <Flex>
+                    
+                    <Box width='50%' height='50%' pr={10}>
+                        <Image src={meddy} alt='Siam Revista example' maxWidth="100%" maxHeight="100%" objectFit="contain" borderRadius={30}/>
+                        
+                    </Box>
+                    
+                    <VStack width='50%' height='50%' pl={10} alignItems="left" alignSelf="center"> 
+                        <Text fontSize="5xl" color={TEXT_BLUE} className="font-mono">Meddy</Text>
+                        <Text fontSize='20px' color="white" className="font-rubik">{getTranslation('siam-desc')}</Text>
+                        <Flex flexDir={'row'} gap={6}>
+                            <TextButton 
+                                key="site"
+                                onClick={() => {}}
+                                translationKey="site"
+                                language={language}
+                            />
+                            <TextButton 
+                                key="code"
+                                onClick={() => {}}
+                                translationKey="code"
+                                language={language}
+                            />
+                            <TextButton 
+                                key="code"
+                                onClick={() => {}}
+                                translationKey="demo-video"
+                                language={language}
+                            />
+                        </Flex>
+                    </VStack>
+                </Flex>
+
+                <Box width='100%'>
+                        <div style={{ borderTop: "1px solid #4a4d5c ", marginTop: 20, marginBottom: 20 }}></div>
+                    </Box>
+
+                <Flex>
                     <VStack width='50%' height='50%' pr={10} alignItems="left" alignSelf="center"> 
                         <Text fontSize="5xl" color={TEXT_BLUE} className="font-mono">{getTranslation('siam-news')}</Text>
                         <Text fontSize='20px' color="white" className="font-rubik">{getTranslation('siam-desc')}</Text>
-                        <Flex>
+                        <Flex flexDir={'row'} gap={6}>
                             <TextButton 
                                 key="site"
                                 onClick={() => {}}
@@ -48,6 +87,8 @@ export const Projects = ({ language }) => {
                     
 
                 </Flex>
+
+                
                 <Box width='100%'>
                         <div style={{ borderTop: "1px solid #4a4d5c ", marginTop: 20, marginBottom: 20 }}></div>
                     </Box>
