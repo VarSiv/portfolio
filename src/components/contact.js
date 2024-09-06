@@ -50,7 +50,7 @@ export const Contact = ({ language }) => {
     };
       
     return (    
-        <Flex maxW="6xl" w="full" flexDir={'row'} alignItems="center" justifyContent="space-between" mx="auto" marginTop={100} marginBottom={100}>
+        <Flex maxW="6xl" w="full" flexDir={["column-reverse", "column-reverse", "row"]} alignItems="center" justifyContent="space-between" mx="auto" marginTop={100} marginBottom={100}>
             
             <VStack width='50%' height='50%' pr={10} alignItems="left" alignSelf="center">
                 <form onSubmit={handleSubmit}>

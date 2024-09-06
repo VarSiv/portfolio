@@ -24,7 +24,7 @@ export const Projects = ({ language }) => {
                     {capitalizeFirstLetter(getTranslation('projects'))}
                 </Text>
 
-                <Flex mb={20}>
+                <Flex mb={20} flexDir={["column", "column", "row"]}>
                     
                     <Box width='50%' height='50%' pr={10}>
                         <Image src={meddy} alt='Siam Revista example' maxWidth="100%" maxHeight="100%" objectFit="contain" borderRadius={30}/>
@@ -61,7 +61,7 @@ export const Projects = ({ language }) => {
                         <div style={{ borderTop: "1px solid #4a4d5c ", marginTop: 20, marginBottom: 20 }}></div>
                     </Box>
 
-                <Flex my={20}>
+                <Flex my={20} flexDir={["column", "column", "row"]}>
                     <VStack width='50%' height='50%' pr={10} alignItems="left" alignSelf="center"> 
                         <Text fontSize="5xl" color={TEXT_BLUE} className="font-mono">{getTranslation('siam-news')}</Text>
                         <Text fontSize='20px' color="white" className="font-rubik">{getTranslation('siam-desc')}</Text>

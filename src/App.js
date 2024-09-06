@@ -17,7 +17,7 @@ function App() {
   };
   return (
     <ChakraProvider>
-      <Box minH="100vh" bg="#1F2338" p={4}>
+      <Box minH="100vh" bg="#1F2338" p={10} className='lg:p:4'>
         <Navbar language={language} toggleLanguage={toggleLanguage} sticky="top"/>
         <Hero language={language} />
         <Skills language={language} />
