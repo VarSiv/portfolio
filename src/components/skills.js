@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Flex, VStack, Text, Image, Box } from '@chakra-ui/react'
 import translations from '../translations.json';
 import javascript from '../images/javascript.png';
@@ -9,8 +9,22 @@ import react from '../images/react.png';
 import git from '../images/git.png';
 import python from '../images/python.png';
 import { LINE_BLUE } from "../App";
+import { Tilt } from 'react-tilt';
 
+
+
+  const defaultOptions = {
+	reverse:        false,  // reverse the tilt direction
+	max:            35,     // max tilt rotation (degrees)
+	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
+	speed:          500,   // Speed of the enter/exit transition
+	transition:     true,   // Set a transition on enter/exit.
+	axis:           null,   // What axis should be disabled. Can be X or Y.
+	reset:          true,    // If the tilt effect has to be reset on exit.
+	easing:         "ease-out",    // Easing on enter/exit.
+}
 const SkillCard = ({ image, altText }) => (
+    <Tilt options={defaultOptions} style={{ color:'rgba(0,0,0,0)'}} >
     <Box
         bg={`${LINE_BLUE}1A`}
         color="white"
@@ -29,9 +43,11 @@ const SkillCard = ({ image, altText }) => (
         display="flex"
         justifyContent="center"
         alignItems="center"
+
     >
         <Image src={image} alt={altText} maxWidth="100%" maxHeight="100%" objectFit="contain" borderRadius={30}/>
     </Box>
+    </Tilt>
 );
 
 export const Skills = ({ language }) => {
@@ -64,5 +80,4 @@ export const Skills = ({ language }) => {
         </Flex>
     )
 }
-
 export default Skills;
