@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, VStack, Heading, Text, Button, Image, Box } from '@chakra-ui/react'
 import translations from '../translations.json';
-import placeholderPfp from '../images/hypergirl.png';
+import pfp from '../images/pfp.jpeg';
 import { TEXT_BLUE } from "../App";
 
 export const Hero = ({ language }) => {
@@ -26,7 +26,7 @@ export const Hero = ({ language }) => {
             <Flex w={["full", "full", "50%"]} justifyContent={["center", "center", "flex-end"]}>
                 <Box w="5/6" h="5/6">
                     <Image
-                        src={placeholderPfp}
+                        src={pfp}
                         borderRadius="20px"
                         objectFit="cover"
                         w="full"

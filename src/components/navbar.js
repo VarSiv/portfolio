@@ -1,13 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import {
   Box,
   Flex,
   Button,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import translations from '../translations.json';
 import { LINE_BLUE, TEXT_BLUE } from "../App";
-
 
 export const TextButton = ({ onClick, translationKey, language, isActive }) => (
   <Button
@@ -38,7 +36,7 @@ export const TextButton = ({ onClick, translationKey, language, isActive }) => (
   </Button>
 );
 
-export const Navbar = ({ language, toggleLanguage }) => {
+export const Navbar = ({ language, toggleLanguage, scrollToSection }) => {
   const handleDownload = () => {
     const pdfUrl = process.env.PUBLIC_URL + '/Brian_Resume.pdf';
     const link = document.createElement('a');
@@ -48,17 +46,11 @@ export const Navbar = ({ language, toggleLanguage }) => {
     link.click();
     document.body.removeChild(link);
   };
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const navItems = [
     { key: 'resume', onClick: handleDownload },
-    { key: 'projects', onClick: () => {}},
-    { key: 'contact', onClick: () => {}},
+    { key: 'projects', onClick: () => scrollToSection('projects')},
+    { key: 'contact', onClick: () => scrollToSection('contact')},
   ];
 
   return (
