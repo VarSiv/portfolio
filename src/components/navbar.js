@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Box,
   Flex,
@@ -53,9 +53,12 @@ export const Navbar = ({ language, toggleLanguage, scrollToSection }) => {
     { key: 'contact', onClick: () => scrollToSection('contact')},
   ];
 
+
+const BG_OPAQUE = '#3D4D64'
+
   return (
     <Box
-      bg={`${LINE_BLUE}1A`}
+      bg={`${BG_OPAQUE}A0`}
       color="white"
       py={3}
       px={4}
@@ -70,7 +73,7 @@ export const Navbar = ({ language, toggleLanguage, scrollToSection }) => {
       my={4}
       position="relative"
       zIndex={1}
-      className="mynav"
+      sx={{ position: 'sticky', top: 10 }}
     >
       <Flex justifyContent="space-between" alignItems="center" px={8}>
         {navItems.map((item) => (
