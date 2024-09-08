@@ -5,7 +5,7 @@ import siam from '../images/siam.png';
 import meddy from '../images/meddy.png';
 
 import { LINE_BLUE, TEXT_BLUE } from "../App";
-import { TextButton } from "./navbar";
+import { TextButton } from "./defaultbutton";
 
 
 export const Projects = ({ language }) => {
