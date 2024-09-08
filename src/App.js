@@ -7,7 +7,7 @@ import Hero from './components/hero';
 import Skills from './components/skills';
 import Projects from './components/projects';
 import Contact from './components/contact';
-
+import Background from './components/background';
 import './index.css';
 
 import theme from './theme';
@@ -46,7 +46,7 @@ function App() {
   return (
 
       <ChakraProvider theme={theme}>
-        <Box minH="100vh" bg="#1F2338" p={10} className='lg:p:4'>
+        <Box minH="100vh" bg="transparent" p={10} className='lg:p:4'>
           <Navbar language={language} toggleLanguage={toggleLanguage} scrollToSection={scrollToSection} sticky="top"/>
           <Hero language={language} />
           <Skills language={language} />
@@ -56,6 +56,8 @@ function App() {
           <div ref={contactRef}>
             <Contact language={language} />
           </div>
+          <Background />
+
         </Box>
       </ChakraProvider>
 
