@@ -50,9 +50,9 @@ export const Contact = ({ language }) => {
     };
       
     return (    
-        <Flex maxW="6xl" w="full" flexDir={["column-reverse", "column-reverse", "row"]} alignItems="center" justifyContent="space-between" mx="auto" marginTop={100} marginBottom={100}>
+        <Flex maxW="6xl" w="full" flexDir={["column-reverse", "column-reverse", "row"]} alignItems="center" justifyContent="space-between" mx="auto" marginTop={[50,50,100]} marginBottom={100}>
             
-            <VStack width='50%' height='50%' pr={10} alignItems="left" alignSelf="center">
+            <VStack  width={["100%", "100%", "50%"]} height='50%' pr={10} alignItems="left" alignSelf="center">
                 <form onSubmit={handleSubmit}>
                 <FormControl >
                     <Input 
@@ -103,7 +103,7 @@ export const Contact = ({ language }) => {
                 </Button>
                 </form>
             </VStack>
-            <VStack width='50%' height='50%' p={10} alignItems="left" alignSelf="center" paddingBottom={20}>
+            <VStack  width={["100%", "100%", "50%"]} height='50%' p={[0,0,10]} alignItems="left" alignSelf="center" paddingBottom={[10,10,20]}>
                 <Text fontSize={"6xl"} fontWeight={'semibold'} color="white" className="font-rubik" paddingBottom={2} marginBottom={0}>
                    { getTranslation('contact-me')}
                 </Text>
