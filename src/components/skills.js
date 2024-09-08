@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import { Flex, VStack, Text, Image, Box } from '@chakra-ui/react'
+import React from "react";
+import { Box, Text, Image, Flex, useBreakpointValue } from '@chakra-ui/react'
 import translations from '../translations.json';
 import javascript from '../images/javascript.png';
 import tailwind from '../images/tailwind.png'
@@ -11,73 +11,114 @@ import python from '../images/python.png';
 import { LINE_BLUE } from "../App";
 import { Tilt } from 'react-tilt';
 
-
-
-  const defaultOptions = {
-	reverse:        false,  // reverse the tilt direction
-	max:            35,     // max tilt rotation (degrees)
-	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
-	speed:          500,   // Speed of the enter/exit transition
-	transition:     true,   // Set a transition on enter/exit.
-	axis:           null,   // What axis should be disabled. Can be X or Y.
-	reset:          true,    // If the tilt effect has to be reset on exit.
-	easing:         "ease-out",    // Easing on enter/exit.
+const defaultOptions = {
+  reverse: false,
+  max: 35,
+  perspective: 1000,
+  speed: 500,
+  transition: true,
+  axis: null,
+  reset: true,
+  easing: "ease-out",
 }
-const SkillCard = ({ image, altText }) => (
-    <Tilt options={defaultOptions} style={{ color:'rgba(0,0,0,0)'}} >
-    <Box
-        bg={`${LINE_BLUE}1A`}
-        color="white"
-        py={3}
-        px={4}
-        borderRadius={30}
-        boxShadow="md"
-        border="1px" 
-        borderColor={LINE_BLUE}
-        m={5}
-        fontFamily="mono"
-        fontWeight="normal"
-        _hover=""
-        height="180px"
-        width="180px"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
 
+const SkillCard = ({ image, altText }) => (
+  <Tilt options={defaultOptions}>
+    <Box
+      bg={`${LINE_BLUE}1A`}
+      color="white"
+      borderRadius={30}
+      boxShadow="md"
+      border="1px" 
+      borderColor={LINE_BLUE}
+      fontFamily="mono"
+      fontWeight="normal"
+      _hover=""
+      height={["140px", "160px", "180px"]}
+      width={["140px", "160px", "180px"]}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      className="transition-all duration-300"
     >
-        <Image src={image} alt={altText} maxWidth="100%" maxHeight="100%" objectFit="contain" borderRadius={30}/>
+      <Image src={image} alt={altText} maxWidth="80%" maxHeight="80%" objectFit="contain" borderRadius={30}/>
     </Box>
-    </Tilt>
+  </Tilt>
 );
 
 export const Skills = ({ language }) => {
-    const getTranslation = (key) => {
-        return translations[language]?.[key] || key;
-    };
-    
-    const skillImages = [
-        javascript, tailwind, flutter, nodejs,
-        react, git, python
-    ];
-      
-    return (    
-        <Flex maxW="6xl" w="full" flexDir={["column", "column", "row"]} alignItems="center" justifyContent="space-between" mx="auto" marginTop={100}>
-            <VStack alignItems="center" w={["full", "full", "100%"]} mb={[8, 0, 0]} pr={[0, 0, 8]} spacing={0}>
-                <Text fontSize={"6xl"} fontWeight={'semibold'} color="white" className="font-rubik" paddingBottom={7}>
-                    {getTranslation('skills')}
-                </Text>
-                <Flex>
-                    {skillImages.slice(0, 4).map((image, index) => (
-                        <SkillCard key={index} image={image} altText={`Skill ${index + 1}`} />
-                    ))}
-                </Flex>
-                <Flex>
-                    {skillImages.slice(4).map((image, index) => (
-                        <SkillCard key={index + 4} image={image} altText={`Skill ${index + 5}`} />
-                    ))}
-                </Flex>
-            </VStack>
+  const getTranslation = (key) => {
+    return translations[language]?.[key] || key;
+  };
+  
+  const skillImages = [
+    javascript, tailwind, flutter, nodejs,
+    react, git, python
+  ];
+
+  const layout = useBreakpointValue({
+    base: "2/2/2/1",
+    md: "3/2/2",
+    lg: "4/3"
+  });
+
+  const renderSkillCards = () => {
+    if (layout === "4/3") {
+      return (
+        <>
+          <Flex justifyContent="center" gap={6} flexWrap="nowrap">
+            {skillImages.slice(0, 4).map((image, index) => (
+              <SkillCard key={index} image={image} altText={`Skill ${index + 1}`} />
+            ))}
+          </Flex>
+          <Flex justifyContent="center" gap={6} flexWrap="nowrap">
+            {skillImages.slice(4).map((image, index) => (
+              <SkillCard key={index + 4} image={image} altText={`Skill ${index + 5}`} />
+            ))}
+          </Flex>
+        </>
+      );
+    } else if (layout === "3/2/2") {
+      return (
+        <>
+          <Flex justifyContent="center" gap={6} flexWrap="nowrap">
+            {skillImages.slice(0, 3).map((image, index) => (
+              <SkillCard key={index} image={image} altText={`Skill ${index + 1}`} />
+            ))}
+          </Flex>
+          <Flex justifyContent="center" gap={6} flexWrap="nowrap">
+            {skillImages.slice(3, 5).map((image, index) => (
+              <SkillCard key={index + 3} image={image} altText={`Skill ${index + 4}`} />
+            ))}
+          </Flex>
+          <Flex justifyContent="center" gap={6} flexWrap="nowrap">
+            {skillImages.slice(5).map((image, index) => (
+              <SkillCard key={index + 5} image={image} altText={`Skill ${index + 6}`} />
+            ))}
+          </Flex>
+        </>
+      );
+    } else {
+      return (
+        <Flex justifyContent="center" gap={6} flexWrap="wrap">
+          {skillImages.map((image, index) => (
+            <SkillCard key={index} image={image} altText={`Skill ${index + 1}`} />
+          ))}
         </Flex>
-    )
+      );
+    }
+  };
+    
+  return (    
+    <Box maxW="6xl" w="full" mx="auto" mt={100} px={4}>
+      <Text fontSize={"6xl"} fontWeight={'semibold'} color="white" className="font-rubik text-center mb-8">
+        {getTranslation('skills')}
+      </Text>
+      <Flex flexDirection="column" alignItems="center" gap={6}>
+        {renderSkillCards()}
+      </Flex>
+    </Box>
+  )
 }
+
 export default Skills;
