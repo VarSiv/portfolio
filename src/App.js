@@ -1,21 +1,17 @@
 import React, { useState, useRef } from 'react';
-
-import { ChakraProvider } from '@chakra-ui/react';
-import { Box } from '@chakra-ui/react'
+import { ChakraProvider, Box, Container } from '@chakra-ui/react';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
 import Skills from './components/skills';
 import Projects from './components/projects';
 import Contact from './components/contact';
 import Background from './components/background';
-import './index.css';
-
+import Footer from './components/footer';
 import theme from './theme';
+import './index.css';
 
 export const TEXT_BLUE = '#92E4FF';
 export const LINE_BLUE = '#9EDCFB';
-
-
 
 function App() {
   const [language, setLanguage] = useState('en');
@@ -44,23 +40,19 @@ function App() {
   };
 
   return (
-
-      <ChakraProvider theme={theme}>
-        <Box minH="100vh" bg="transparent" p={10} className='lg:p:4'>
+    <ChakraProvider theme={theme}>
+      <Box minH="100vh" bg="transparent">
+        <Container maxW="container.xl" p={10} className='lg:p-4'>
           <Navbar language={language} toggleLanguage={toggleLanguage} scrollToSection={scrollToSection} sticky="top"/>
           <Hero language={language} />
           <Skills language={language} />
-          <div ref={projectsRef} class='a'>
-            <Projects language={language} />
-          </div>
-          <div ref={contactRef}>
-            <Contact language={language} />
-          </div>
+          <Projects language={language} />
+          <Contact language={language} />
           <Background />
-
-        </Box>
-      </ChakraProvider>
-
+        </Container>
+      </Box>
+      <Footer />
+    </ChakraProvider>
   );
 }
 
