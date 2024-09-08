@@ -99,7 +99,7 @@ export const Contact = ({ language }) => {
                     border="1px" 
                     borderColor={LINE_BLUE}
                 >
-                    send
+                    {getTranslation('send')}
                 </Button>
                 </form>
             </VStack>

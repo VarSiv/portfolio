@@ -24,11 +24,18 @@ export const Projects = ({ language }) => {
                     {capitalizeFirstLetter(getTranslation('projects'))}
                 </Text>
 
-                <Flex mb={20} flexDir={["column", "column", "row"]}>
-                    <Box width={["100%", "100%", "50%"]} height='50%' pr={[0, 0, 10]} pb={[10,10,0]}>
+                <Flex mb={20} flexDir={["column", "column", "row"]} alignItems="center">
+                    <Box
+                        width={["100%", "100%", "50%"]}
+                        height="100%"
+                        pr={[0, 0, 10]}
+                        pb={[10, 10, 0]}
+                        display="flex"
+                        justifyContent="center"
+                    >
                         <Image
                         src={meddy}
-                        alt='Siam Revista example'
+                        alt="Meddy preview"
                         maxWidth="100%"
                         maxHeight="100%"
                         objectFit="contain"
@@ -37,29 +44,34 @@ export const Projects = ({ language }) => {
                     </Box>
 
                     <VStack
-                        width={["100%", "100%", "50%"]} height='50%' pl={[0, 0, 10]} alignItems="left" alignSelf="center">
+                        width={["100%", "100%", "50%"]}
+                        height="50%"
+                        pl={[0, 0, 10]}
+                        alignItems="left"
+                        alignSelf="center"
+                    >
                         <Text fontSize="5xl" color={TEXT_BLUE} className="font-mono">
                         Meddy
                         </Text>
-                        <Text fontSize='20px' color="white" className="font-rubik">
-                        {getTranslation('siam-desc')}
+                        <Text fontSize="20px" color="white" className="font-rubik">
+                        {getTranslation("meddy-desc")}
                         </Text>
-                        <Flex flexDir={'row'} gap={6}>
+                        <Flex flexDir={"row"} gap={6}>
                         <TextButton
                             key="site"
-                            onClick={() => window.open('https://trymeddy.com/', '_blank', 'noopener,noreferrer')}
+                            onClick={() => window.open("https://trymeddy.com/", "_blank", "noopener,noreferrer")}
                             translationKey="site"
                             language={language}
                         />
                         <TextButton
                             key="code"
-                            onClick={() => window.open('https://github.com/KhromeM/meddy', '_blank', 'noopener,noreferrer')}
+                            onClick={() => window.open("https://github.com/KhromeM/meddy", "_blank", "noopener,noreferrer")}
                             translationKey="code"
                             language={language}
                         />
                         <TextButton
-                            key="code"
-                            onClick={() => window.open('https://www.youtube.com/watch?v=v3aB5pym91A', '_blank', 'noopener,noreferrer')}
+                            key="demo-video"
+                            onClick={() => window.open("https://www.youtube.com/watch?v=v3aB5pym91A", "_blank", "noopener,noreferrer")}
                             translationKey="demo-video"
                             language={language}
                         />
@@ -68,11 +80,12 @@ export const Projects = ({ language }) => {
                     </Flex>
 
 
+
                 <Box width='100%'>
                         <div style={{ borderTop: "1px solid #4a4d5c ", marginTop: 20, marginBottom: 20 }}></div>
                     </Box>
 
-                    <Flex my={20} flexDir={["column-reverse", "column-reverse", "row"]}>
+                    <Flex my={20} flexDir={["column-reverse", "column-reverse", "row"]} alignItems="center">
                         <VStack
                             width={["100%", "100%", "50%"]}
                             height='50%'
@@ -101,7 +114,7 @@ export const Projects = ({ language }) => {
                             />
                             </Flex>
                         </VStack> 
-                        <Box width={["100%", "100%", "50%"]} height='50%' pl={[0, 0, 10]} pb={[10,10,0]}>
+                        <Box width={["100%", "100%", "50%"]} height='50%' pl={[0, 0, 10]} pb={[10,10,0]} justifyContent="center">
                             <Image
                             src={siam}
                             alt='Siam Revista example'
