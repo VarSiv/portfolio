@@ -46,8 +46,12 @@ function App() {
           <Navbar language={language} toggleLanguage={toggleLanguage} scrollToSection={scrollToSection} sticky="top"/>
           <Hero language={language} />
           <Skills language={language} />
-          <Projects language={language} />
-          <Contact language={language} />
+          <div ref={projectsRef} class='a'>
+            <Projects language={language} />
+          </div>
+          <div ref={contactRef}>
+            <Contact language={language} />
+          </div>
           <Background />
         </Container>
       </Box>
