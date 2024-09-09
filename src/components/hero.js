@@ -26,24 +26,26 @@ export const Hero = ({ language }) => {
 
                 {/* Social Icons */}
                 <Flex pt={4} gap={4}>
-                    <Link href="https://github.com/your-github-username" isExternal>
+                    <Link href="https://github.com/VarSiv" isExternal>
                         <IconButton 
                             aria-label="GitHub Profile" 
-                            icon={<FaGithub />} 
-                            variant="ghost"  // Changed to 'ghost'
+                            icon={<FaGithub size={36} />} // Increased icon size
+                            variant="ghost"
                             color="white"
                             opacity={0.8} 
                             _hover={{ color: TEXT_BLUE }}
+                            size="lg" // Increased button size
                         />
                     </Link>
-                    <Link href="https://linkedin.com/in/your-linkedin-username" isExternal>
+                    <Link href="https://www.linkedin.com/in/varvara-mironov-55180426a/" isExternal>
                         <IconButton 
                             aria-label="LinkedIn Profile" 
-                            icon={<FaLinkedin />} 
-                            variant="ghost"  // Changed to 'ghost'
+                            icon={<FaLinkedin size={36} />} // Increased icon size
+                            variant="ghost"
                             color="white"
                             opacity={0.8} 
                             _hover={{ color: TEXT_BLUE }}
+                            size="lg" // Increased button size
                         />
                     </Link>
                 </Flex>
