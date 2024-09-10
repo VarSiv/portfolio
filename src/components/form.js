@@ -12,6 +12,16 @@ const Form = ({ language }) => {
         emailjs.init("V5Jrx1x7PO44Y11XH");
     }, []);
 
+    useEffect(() => {
+        let timer;
+        if (alert.message) {
+            timer = setTimeout(() => {
+                setAlert({ message: '', type: '' });
+            }, 8000); // 8 seconds
+        }
+        return () => clearTimeout(timer);
+    }, [alert]);
+
     const getTranslation = (key) => {
         return translations[language]?.[key] || key;
     };

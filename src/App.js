@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChakraProvider, Box, Container } from '@chakra-ui/react';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
@@ -17,6 +17,14 @@ function App() {
   const [language, setLanguage] = useState('en');
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const langParam = params.get('lang');
+    if (langParam === 'en' || langParam === 'esp') {
+      setLanguage(langParam);
+    }
+  }, []);
 
   const toggleLanguage = () => {
     setLanguage(prevLang => prevLang === 'en' ? 'esp' : 'en');
@@ -46,7 +54,7 @@ function App() {
           <Navbar language={language} toggleLanguage={toggleLanguage} scrollToSection={scrollToSection} sticky="top"/>
           <Hero language={language} />
           <Skills language={language} />
-          <div ref={projectsRef} class='a'>
+          <div ref={projectsRef} className='a'>
             <Projects language={language} />
           </div>
           <div ref={contactRef}>
