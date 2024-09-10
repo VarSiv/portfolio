@@ -2,43 +2,63 @@ import React, { useState, useEffect } from 'react';
 import { FormControl, Input, Button, Text, Box } from '@chakra-ui/react';
 import { LINE_BLUE, TEXT_BLUE } from "../App";
 import translations from '../translations.json';
+import emailjs from '@emailjs/browser';
 
 const Form = ({ language }) => {
     const [formData, setFormData] = useState({ email: '', body: '' });
     const [alert, setAlert] = useState({ message: '', type: '' });
+
+    useEffect(() => {
+        emailjs.init("V5Jrx1x7PO44Y11XH");
+    }, []);
+
     const getTranslation = (key) => {
         return translations[language]?.[key] || key;
     };
-    useEffect(() => {
-        let timer;
-        if (alert.message) {
-            timer = setTimeout(() => {
-                setAlert({ message: '', type: '' });
-            }, 10000);
-        }
-        return () => clearTimeout(timer);
-    }, [alert]);
+
+    const sendEmail = () => {
+        const templateParams = {
+            from_name: formData.email,
+            from_email: formData.email,
+            message: formData.body,
+            to_name: 'Your Name', 
+        };
+
+        emailjs.send("service_arx73hw", "template_t9byr35", templateParams, "V5Jrx1x7PO44Y11XH")
+        .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+            setAlert({ message: 'Message sent successfully!', type: 'success' });
+            setFormData({ email: '', body: '' }); // Clear the form
+        }, (err) => {
+            console.log('FAILED...', err);
+            setAlert({ message: 'Failed to send message. Please try again.', type: 'error' });
+        });
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevState => ({ ...prevState, [name]: value }));
+        setFormData(prevData => ({ ...prevData, [name]: value }));
     };
 
-    const isValidEmail = (email) => {
+    const validateEmail = (email) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return re.test(String(email).toLowerCase());
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!isValidEmail(formData.email)) {
-            setAlert({ message: 'Please enter a valid email address.', type: 'error' });
-        } else if (formData.body.trim() === '') {
-            setAlert({ message: 'Please enter a message.', type: 'error' });
-        } else {
-            setAlert({ message: 'Message sent successfully!', type: 'success' });
-            setFormData({ email: '', body: '' }); // Clear input boxes
+        
+        if (!formData.email || !formData.body) {
+            setAlert({ message: 'Please fill in all fields.', type: 'error' });
+            return;
         }
+
+        if (!validateEmail(formData.email)) {
+            setAlert({ message: 'Please enter a valid email address.', type: 'error' });
+            return;
+        }
+
+        sendEmail();
     };
 
     return (
