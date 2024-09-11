@@ -27,10 +27,11 @@ export const Navbar = ({
   }, [mobileBreakpoint]);
 
   const handleDownload = () => {
-    const pdfUrl = process.env.PUBLIC_URL + '/Brian_Resume.pdf';
+    const fileName = language === 'en' ? 'mironov_en.pdf' : 'mironov_esp.pdf';
+    const pdfUrl = `${process.env.PUBLIC_URL}/${fileName}`;
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'Varvara_Mironov_Resume.pdf';
+    link.download = `Varvara_Mironov_Resume_${language === 'en' ? 'English' : 'Spanish'}.pdf`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
