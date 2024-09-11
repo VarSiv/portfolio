@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Box, Text, Image, Flex, useBreakpointValue } from '@chakra-ui/react'
 import translations from '../translations.json';
 import javascript from '../images/javascript.png';
@@ -22,26 +22,9 @@ const defaultOptions = {
   easing: "ease-out",
 }
 
-const SkillCard = ({ image, altText }) => {
-  const tiltRef = useRef(null);
-  const tiltInstance = useRef(null);
-
-  useEffect(() => {
-    if (tiltRef.current && !tiltInstance.current) {
-      tiltInstance.current = new Tilt(tiltRef.current, defaultOptions);
-    }
-
-    // return () => {
-    //   if (tiltInstance.current) {
-    //     tiltInstance.current.destroy();
-    //     tiltInstance.current = null;
-    //   }
-    // };
-  }, []);
-
-  return (
+const SkillCard = ({ image, altText }) => (
+  <Tilt options={defaultOptions}>
     <Box
-      ref={tiltRef}
       bg={`${LINE_BLUE}1A`}
       color="white"
       borderRadius={30}
@@ -60,8 +43,8 @@ const SkillCard = ({ image, altText }) => {
     >
       <Image src={image} alt={altText} maxWidth="80%" maxHeight="80%" objectFit="contain" borderRadius={30}/>
     </Box>
-  );
-};
+  </Tilt>
+);
 
 export const Skills = ({ language }) => {
   const getTranslation = (key) => {
